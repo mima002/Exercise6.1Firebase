@@ -1,21 +1,25 @@
 /* set styling for chat app's header, logo, and title */
+/* added justify-content to put footer at the bottom of the page without
+  using fixed positioning */
 .App{
   background: lightblue;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   font-size: 14px;
 }
 
 /* set styling for header of the app */
 .header {
   height: 4rem;
-  width: 100 vw;
+  width: 100;
   border-bottom: 2px solid rgb(255, 212, 132);
   display: flex;
   align-items: center;
   padding:1px 1rem;
   background: rgb(73, 159, 240);
+  position: relative;
 }
 
 /* set styling for logo of the app + include image of cat for background */
@@ -39,23 +43,22 @@
 
 /* set styling for footer of the app and set it to the bottom of the screen */
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
   height: 4rem;
-  width: 100 vw;
-  border-top: 2px solid rgb(255, 212, 132);
+  width: 100;
+  position: relative;
   display: flex;
   align-items: center;
-  padding:1px 1rem;
-  background: rgb(73, 159, 240);
+  padding: 0 1rem;
+  /* will decide if I want to add background and border-top in the future */
+  /* background:rgb(73, 159, 240);
+  border-top:2px solid rgb(255, 212, 132) */
 }
 
 /* set styling for text input space */
 .text-input {
-  width: 80%;
-  border: 1px solid white;
+  width: 100%;
+  border: 1px solid rgb(255, 212, 132);
+  border: none;
   height: 2rem;
   border-radius: 1rem;
   padding: 0 1rem;
@@ -64,13 +67,15 @@
 /* set styling for send button */
 .send {
   background: rgb(255, 212, 132);
-  font-size: 1.25rem;
-  font-weight: bold;
-  border: 2px solid rgb(255, 212, 132);
+  border: none;
   margin-left: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 50%;
   color: gray;
   cursor: pointer;
+  height: 1.7rem;
+  width: 1.7rem;
+  position: absolute;
+  right: 1.2rem;
 }
 
 /* set media queries for mobile, tablet and desktop breakpoints*/

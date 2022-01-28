@@ -10,7 +10,7 @@ function App() {
     </header>
     <footer className="footer">
       <input className ="text-input" />
-      <button className="send">send</button>
+      <button className="send">⬆</button>
     </footer>
     </div>
   );
