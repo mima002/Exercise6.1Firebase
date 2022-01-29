@@ -1,0 +1,35 @@
+/* set styling for footer of the app and set it to the bottom of the screen */
+.footer {
+    height: 4rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    /* will decide if I want to add background and border-top in the future */
+    background:rgb(73, 159, 240);
+    border-top:2px solid rgb(255, 212, 132)
+  }
+  
+  /* set styling for text input space */
+  .text-input {
+    width: 100%;
+    border: 1px solid rgb(255, 212, 132);
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    color: black;
+  }
+  
+  /* set styling for send button */
+  .send {
+    background: rgb(255, 212, 132);
+    border: none;
+    margin-left: 1rem;
+    border-radius: 50%;
+    color: gray;
+    cursor: pointer;
+    height: 1.7rem;
+    width: 1.7rem;
+    position: absolute;
+    right: 1.25rem;
+  }

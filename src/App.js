@@ -1,17 +1,28 @@
 import './App.css';
+import TextInput from './TextInput';
+import { useState } from "react";
 
 function App() {
+  const [messages, setMessages] = useState([]); //store all messages into array "messages"
+
+  function sendMessage(msg) {
+    console.log("MY MESSAGE", msg); //log message into console
+    setMessages([msg, ...messages]); //add onto array (old array+new items)
+  }
+  console.log(messages); //logs array of messages into console
+
   return (
-  //create app with header (logo and title "Let's Chat") and footer (text input and send button)
   <div className="App"> 
     <header className="header">
       <img className="logo"/>
       <div className="title">Let's Chat!</div>
     </header>
-    <footer className="footer">
-      <input className ="text-input" />
-      <button className="send">⬆</button>
-    </footer>
+    <div className = "messages">{}
+      {messages.map((msg)=>{
+        return <div className="message">{msg}</div>
+      })}
+    </div>
+    <TextInput sendMessage={sendMessage} />  
     </div>
   );
 }
