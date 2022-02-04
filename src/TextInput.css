@@ -12,7 +12,7 @@
   
   /* set styling for text input space */
   .text-input {
-    width: 100%;
+    width: calc(100% - 50px);
     border: 1px solid rgb(255, 212, 132);
     height: 2rem;
     border-radius: 1rem;
@@ -22,14 +22,36 @@
   
   /* set styling for send button */
   .send {
-    background: rgb(255, 212, 132);
     border: none;
     margin-left: 1rem;
     border-radius: 50%;
+    background: rgb(255, 212, 132);
     color: gray;
     cursor: pointer;
     height: 1.7rem;
     width: 1.7rem;
     position: absolute;
     right: 1.25rem;
+  }
+
+  /* set styling for send button when hovered */
+  .send:hover {
+    background-color: darkcyan;
+    color: white;
+  }
+
+  /* set styling for camera button */
+  .camera {
+    background:rgb(255, 212, 132);
+    color: gray;
+    border: none;
+    border-radius: 12px; 
+    padding: .5rem;
+    width: 2rem;
+  }
+
+  /* set styling for camera when hovered */
+  .camera:hover {
+    background-color: darkcyan;
+    color: white;
   }
