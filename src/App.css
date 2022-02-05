@@ -77,3 +77,12 @@ html {
         font-size: 20px;
     }
 }
+
+/* set styling for username */
+.username {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  position: absolute;
+  right: 12rem;
+}

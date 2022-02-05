@@ -12,7 +12,7 @@
   
   /* set styling for text input space */
   .text-input {
-    width: calc(100% - 50px);
+    width: 100%;
     border: 1px solid rgb(255, 212, 132);
     height: 2rem;
     border-radius: 1rem;
@@ -46,8 +46,9 @@
     color: gray;
     border: none;
     border-radius: 12px; 
-    padding: .5rem;
-    width: 2rem;
+    height: 2rem;
+    width: 2rem; 
+    cursor: pointer;
   }
 
   /* set styling for camera when hovered */
