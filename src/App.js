@@ -5,15 +5,13 @@ import Message from "./Message";
 import Camera from 'react-snap-pic';
 import { use100vh } from "react-div-100vh";
 import NamePicker from './NamePicker.js';
+import { useDB, db } from './db';
 
 // Component called App
 function App() {
   const height = use100vh();
   
-  // useState that updates UI of App using variable called "messages"
-  // initial value is empty array 
-  // the function "setMessages" is used to update variable "messages"
-  const [messages, setMessages] = useState([]); //store all messages into array "messages"
+  const messages = useDB();
   
   // add showCamera into state
   const [showCamera, setShowCamera] = useState(false)
@@ -35,7 +33,7 @@ function App() {
       time: Date.now(),
       user: username,
     };
-    setMessages([newMessage, ...messages]); //add onto array (old array+new items)
+    db.send(newMessage); //add onto array (old array+new items)
   }
 
   console.log(messages); //logs array of messages into console every time state changes
