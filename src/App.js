@@ -3,10 +3,12 @@ import TextInput from './TextInput';
 import { useState } from "react";
 import Message from "./Message";
 import Camera from 'react-snap-pic';
-import NamePicker from './namePicker.js';
+import { use100vh } from "react-div-100vh";
+import NamePicker from './NamePicker.js';
 
 // Component called App
 function App() {
+  const height = use100vh();
   
   // useState that updates UI of App using variable called "messages"
   // initial value is empty array 
@@ -16,20 +18,22 @@ function App() {
   // add showCamera into state
   const [showCamera, setShowCamera] = useState(false)
 
-  // add text input into state to edit username
-  const [editName, setEditName] = useState(false);
+  const [username,setUsername] = useState("");
 
-  // set username to the screen
-  const [name, setName] = useState("");
+  // add text input into state to edit username
+  // const [editName, setEditName] = useState(false);
+
+  // // set username to the screen
+  // const [name, setName] = useState("");
 
   // function "sendMessages" runs when we click the send button
   function sendMessage(text) {
-    if (!text) return;
+    if (!text.trim()) return;
     // create a new message object
     const newMessage = {
-      text,
+      text: text,
       time: Date.now(),
-      user: "Michelle",
+      user: username,
     };
     setMessages([newMessage, ...messages]); //add onto array (old array+new items)
   }
@@ -43,38 +47,16 @@ function App() {
     setShowCamera(false)
   }
 
-  // onPress function to console log username and close text input space 
-  // when "Enter" key is pressed
-  function onPress(e) {
-    if (e.key === "Enter") {
-      console.log(name)
-      setEditName(false)
-    }
-} 
 
   // return HTML
   return (
-    <div className="App"> 
+    <div className="App"
+      style= {{height:height, minHeight: height, maxHeight: height}}
+    > 
       <header className="header">
         <img className="logo"/>
         <div className="title">Let's Chat!</div>
-
-        {/* when set username button is pressed, show text input to type in username
-            and press enter to save */}
-        <NamePicker
-          editName = {()=>setEditName(true)} 
-        />
-        <div>{editName && 
-        <input className = "type-name"  
-          onChange = {(e) => setName(e.target.value)}
-          onKeyPress = {onPress} 
-        />
-          }
-        </div>
-        {/* display username on the screen*/}
-        <div className = "username">
-          {name}
-        </div>
+        <NamePicker setUsername = {setUsername} />
       </header>
   
       <div className = "messages">
@@ -82,7 +64,7 @@ function App() {
         // loops over every message in "messages" array and return a Message component
         // spreading all items in msg
         // "key" needs to be a unique value for each item 
-          return <Message {...msg} key={i} />;
+          return <Message {...msg} key={i} fromMe={msg.user === username} />;
         })}
       </div>
       <TextInput sendMessage = {sendMessage} //send message 
